@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: windows-latest  # این معادل vmImage در Azure Pipelines هست
+    runs-on: windows-latest
 
     steps:
     - name: Checkout code
@@ -20,10 +20,10 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ConsoleApp4.sln
 
-    - name: Build project
-      run: dotnet build --no-restore
+    - name: Build solution
+      run: dotnet build ConsoleApp4.sln --no-restore
 
     - name: Run tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ConsoleApp4.sln --no-build --verbosity normal
